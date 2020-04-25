@@ -48,7 +48,7 @@ root.title('KFW Clock')
 cal_day = tk.Label(root, font=('helvetica', 48), bg='#7ea0d6')
 cal_date = tk.Label(root, font=('helvetica', 48), bg='#7ea0d6')
 clock = tk.Label(root, font=('helvetica', 128, 'bold'), bg='#7ea0d6', fg='blue4')
-display_line1 = tk.Label(root, font=('helvetica', 16), bg='#7ea0d6')
+display_line1 = tk.Label(root, font=('helvetica', 24), bg='#7ea0d6')
 display_line2 = tk.Label(root, font=('helvetica', 48), bg='#7ea0d6')
 
 # clock.pack(fill='both', expand=1)
