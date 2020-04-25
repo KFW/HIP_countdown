@@ -1,25 +1,20 @@
+# fork modified to show days since first COVID-19 case instead of a countdown to events
 import time
 import tkinter as tk
 import datetime as dt
 
 window_size = '800x480'
-# future enhancement - put dates in separate file so don't have to keep changing code
-events = [  ('HI Team Bldg', dt.date(2020,4,24)),
-            ('XGM', dt.date(2020,5,4)),
-            ('AMIA CI', dt.date(2020,5,19)),
-            ('ID Attdg', dt.date(2020,5,25)),
-            ('UGM', dt.date(2020,8,24)),
-            ('Deutschland', dt.date(2020,9,12)),
-            ('Maker Camp', dt.date(2020,10,9))
-           ]
+line1 = 'Days since first COVID-19 case in St. Louis MSA:'
+date_first_case = dt.date(2020,3,4)
 
-def msg_string(event_name, countdown):
-    if countdown.days == 1:
-        return event_name + ' is in: 1 day'
-    elif countdown.days > 1000:
-        return event_name + ' is in: ??? days'
-    else:
-        return event_name + ' is in: ' + str(countdown.days) + ' days'
+
+# def msg_string(event_name, countdown):
+#     if countdown.days == 1:
+#         return event_name + ' is in: 1 day'
+#     elif countdown.days > 1000:
+#         return event_name + ' is in: ??? days'
+#     else:
+#         return event_name + ' is in: ' + str(countdown.days) + ' days'
 
 def tick(time1=''):
     # get the current local time from the PC
@@ -34,22 +29,12 @@ def tick(time1=''):
         cal_date.grid(row=0, column=1, sticky=tk.E)
         clock.config(text=time2)
         clock.grid(row=1, columnspan=2)
-        for index, event in enumerate(events):
-            if event[1] > today:
-                countdown = event[1] - today
-                event_name = event[0]
-                event1string = msg_string(event_name, countdown)
-                if (index + 1) < len(events): # there are additional sites
-                    countdown = events[index + 1][1] - today
-                    event_name = events[index + 1][0]
-                    event2string = msg_string(event_name, countdown)
-                else:
-                    event2string = "----------"
-                break
-        cd_line1.grid(row=2, columnspan=2)
-        cd_line1.config(text = event1string)
-        cd_line2.grid(row=3, columnspan=2)
-        cd_line2.config(text = event2string)
+        elapsed_time = today - date_first_case
+        elapsed_days = str(elapsed_time.days)
+        display_line1.grid(row=2, columnspan=2)
+        display_line1.config(text = line1)
+        display_line2.grid(row=3, columnspan=2)
+        display_line2.config(text = elapsed_days)
 
     # calls itself every 200 milliseconds
     # to update the time display as needed
@@ -63,8 +48,8 @@ root.title('KFW Clock')
 cal_day = tk.Label(root, font=('helvetica', 48), bg='#7ea0d6')
 cal_date = tk.Label(root, font=('helvetica', 48), bg='#7ea0d6')
 clock = tk.Label(root, font=('helvetica', 128, 'bold'), bg='#7ea0d6', fg='blue4')
-cd_line1 = tk.Label(root, font=('helvetica', 32), bg='#7ea0d6')
-cd_line2 = tk.Label(root, font=('helvetica', 32), bg='#7ea0d6')
+display_line1 = tk.Label(root, font=('helvetica', 16), bg='#7ea0d6')
+display_line2 = tk.Label(root, font=('helvetica', 48), bg='#7ea0d6')
 
 # clock.pack(fill='both', expand=1)
 tick()
