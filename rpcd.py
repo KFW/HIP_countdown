@@ -7,15 +7,6 @@ window_size = '800x480'
 line1 = 'Days since first COVID-19 case in St. Louis MSA:'
 date_first_case = dt.date(2020,3,7)
 
-
-# def msg_string(event_name, countdown):
-#     if countdown.days == 1:
-#         return event_name + ' is in: 1 day'
-#     elif countdown.days > 1000:
-#         return event_name + ' is in: ??? days'
-#     else:
-#         return event_name + ' is in: ' + str(countdown.days) + ' days'
-
 def tick(time1=''):
     # get the current local time from the PC
     time2 = time.strftime('%H:%M')
@@ -49,7 +40,7 @@ cal_day = tk.Label(root, font=('helvetica', 48), bg='#7ea0d6')
 cal_date = tk.Label(root, font=('helvetica', 48), bg='#7ea0d6')
 clock = tk.Label(root, font=('helvetica', 128, 'bold'), bg='#7ea0d6', fg='blue4')
 display_line1 = tk.Label(root, font=('helvetica', 24), bg='#7ea0d6')
-display_line2 = tk.Label(root, font=('helvetica', 48), bg='#7ea0d6')
+display_line2 = tk.Label(root, font=('helvetica', 56, 'bold'), bg='#7ea0d6')
 
 # clock.pack(fill='both', expand=1)
 tick()
