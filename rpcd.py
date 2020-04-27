@@ -5,7 +5,7 @@ import datetime as dt
 
 window_size = '800x480'
 line1 = 'Days since first COVID-19 case in St. Louis MSA:'
-date_first_case = dt.date(2020,3,4)
+date_first_case = dt.date(2020,3,7)
 
 
 # def msg_string(event_name, countdown):
