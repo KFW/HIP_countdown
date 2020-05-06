@@ -4,8 +4,8 @@ import tkinter as tk
 import datetime as dt
 
 window_size = '800x480'
-line1 = 'Days since first COVID-19 case in St. Louis MSA:'
-date_first_case = dt.date(2020,3,7)
+line1 = 'Days since four COVID-19 cases in St. Louis MSA:'
+date_first_case = dt.date(2020,3,14)
 
 def tick(time1=''):
     # get the current local time from the PC
