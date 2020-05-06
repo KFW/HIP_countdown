@@ -5,7 +5,7 @@ import datetime as dt
 
 window_size = '800x480'
 line1 = 'Days since four COVID-19 cases in St. Louis MSA:'
-date_first_case = dt.date(2020,3,14)
+date_four_cases = dt.date(2020,3,14)
 
 def tick(time1=''):
     # get the current local time from the PC
@@ -20,7 +20,7 @@ def tick(time1=''):
         cal_date.grid(row=0, column=1, sticky=tk.E)
         clock.config(text=time2)
         clock.grid(row=1, columnspan=2)
-        elapsed_time = today - date_first_case
+        elapsed_time = today - date_four_cases
         elapsed_days = str(elapsed_time.days)
         display_line1.grid(row=2, columnspan=2)
         display_line1.config(text = line1)
